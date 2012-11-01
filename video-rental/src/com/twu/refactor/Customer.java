@@ -3,6 +3,7 @@ package com.twu.refactor;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+//Understands the entity that would be renting out books.
 public class Customer {
 
 	private String name;

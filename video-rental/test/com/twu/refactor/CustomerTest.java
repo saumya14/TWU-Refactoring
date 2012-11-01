@@ -11,9 +11,10 @@ import java.io.StringReader;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
+//Ensures that the entity borrowing objects behaves in the pre-defined manner.
 public class CustomerTest {
 
-	private static final String GOLD_PATH = "test/data";
+	private static final String GOLD_PATH = "C:\\Users\\saumyasi\\Documents\\projects\\TWU-Refactoring\\video-rental\\test\\data";
 
     private Customer dinsdale = new Customer("Dinsdale Pirhana");
 

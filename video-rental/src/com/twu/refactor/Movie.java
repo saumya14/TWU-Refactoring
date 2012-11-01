@@ -1,5 +1,6 @@
 package com.twu.refactor;
 
+//Understand the characteristics of the object to be rented out.
 public class Movie {
 	public static final int  CHILDRENS = 2;
 	public static final int  REGULAR = 0;
