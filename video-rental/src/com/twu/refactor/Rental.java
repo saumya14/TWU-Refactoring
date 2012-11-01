@@ -22,10 +22,10 @@ public class Rental {
     public double calculateRentalAmount()
     {
         double rentalAmount=0;
-        switch (getMovie().getPriceCode()) {
+        switch (movie.getPriceCode()) {
             case Movie.REGULAR:
                 rentalAmount += 2;
-                if (daysRented() > 2)
+                if (daysRented > 2)
                     rentalAmount += (daysRented - 2) * 1.5;
                 break;
             case Movie.NEW_RELEASE:
