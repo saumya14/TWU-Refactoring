@@ -24,17 +24,15 @@ public class Customer {
         String displayedOutput = "Rental Record for " + name + "\n";
 		while (rentals.hasNext()) {
 			double rentalAmount;
-			Rental each = rentals.next();
-            rentalAmount = each.calculateRentalAmount();
+			Rental eachRental = rentals.next();
+            rentalAmount = eachRental.calculateRentalAmount();
 
             frequentRenterPoints = incrementFrequentRenterPoint(frequentRenterPoints);
-            // add bonus for a two day new release rental
-			if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE)
-					&& each.daysRented() > 1)
+			if (isNewReleaseRentedForTwoDays(eachRental))
                 frequentRenterPoints = incrementFrequentRenterPoint(frequentRenterPoints);
 
             // show figures for this rental
-			displayedOutput += "\t" + each.getMovie().getTitle() + "\t"
+			displayedOutput += "\t" + eachRental.getMovie().getTitle() + "\t"
 					+ String.valueOf(rentalAmount) + "\n";
 			totalRentalAmount += rentalAmount;
 
@@ -44,6 +42,11 @@ public class Customer {
 				+ " frequent renter points";
 		return displayedOutput;
 	}
+
+    private boolean isNewReleaseRentedForTwoDays(Rental each) {
+        return (each.getMovie().getPriceCode() == Movie.NEW_RELEASE)
+                && each.daysRented() > 1;
+    }
 
     private int incrementFrequentRenterPoint(int frequentRenterPoints) {
         frequentRenterPoints++;
