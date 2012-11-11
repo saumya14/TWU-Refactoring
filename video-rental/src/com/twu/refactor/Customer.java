@@ -23,7 +23,7 @@ public class Customer {
 		Iterator<Rental> rentals = rentalList.iterator();
         String result = "Rental Record for " + name + "\n";
 		while (rentals.hasNext()) {
-			double thisAmount = 0;
+			double thisAmount;
 			Rental each = rentals.next();
             thisAmount = each.calculateRentalAmount();
 
