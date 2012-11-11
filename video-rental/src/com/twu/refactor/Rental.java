@@ -1,6 +1,6 @@
 package com.twu.refactor;
 
-//Understands the parameters on which renting of an object is dependent on.
+//Understands the concept of rental of objects.
 public class Rental {
 
     private Movie movie;
