@@ -17,36 +17,38 @@ public class Customer {
 		rentalList.add(arg);
 	}
 
-    public String statement() {
+    public String displayRentalInformation() {
 		double totalRentalAmount = 0;
 		int frequentRenterPoints = 0;
 		Iterator<Rental> rentals = rentalList.iterator();
-        String result = "Rental Record for " + name + "\n";
+        String displayedOutput = "Rental Record for " + name + "\n";
 		while (rentals.hasNext()) {
 			double rentalAmount;
 			Rental each = rentals.next();
             rentalAmount = each.calculateRentalAmount();
 
-
-            // add frequent renter points
-			frequentRenterPoints++;
-			// add bonus for a two day new release rental
+            frequentRenterPoints = incrementFrequentRenterPoint(frequentRenterPoints);
+            // add bonus for a two day new release rental
 			if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE)
 					&& each.daysRented() > 1)
-				frequentRenterPoints++;
+                frequentRenterPoints = incrementFrequentRenterPoint(frequentRenterPoints);
 
-			// show figures for this rental
-			result += "\t" + each.getMovie().getTitle() + "\t"
+            // show figures for this rental
+			displayedOutput += "\t" + each.getMovie().getTitle() + "\t"
 					+ String.valueOf(rentalAmount) + "\n";
 			totalRentalAmount += rentalAmount;
 
 		}
-		result += "Amount owed is " + String.valueOf(totalRentalAmount) + "\n";
-		result += "You earned " + String.valueOf(frequentRenterPoints)
+		displayedOutput += "Amount owed is " + String.valueOf(totalRentalAmount) + "\n";
+		displayedOutput += "You earned " + String.valueOf(frequentRenterPoints)
 				+ " frequent renter points";
-		return result;
+		return displayedOutput;
 	}
 
+    private int incrementFrequentRenterPoint(int frequentRenterPoints) {
+        frequentRenterPoints++;
+        return frequentRenterPoints;
+    }
 
 
 }
