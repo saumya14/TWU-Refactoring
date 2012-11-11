@@ -17,15 +17,11 @@ public class Customer {
 		rentalList.add(arg);
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public String statement() {
+    public String statement() {
 		double totalAmount = 0;
 		int frequentRenterPoints = 0;
 		Iterator<Rental> rentals = rentalList.iterator();
-		String result = "Rental Record for " + getName() + "\n";
+        String result = "Rental Record for " + name + "\n";
 		while (rentals.hasNext()) {
 			double thisAmount = 0;
 			Rental each = rentals.next();
