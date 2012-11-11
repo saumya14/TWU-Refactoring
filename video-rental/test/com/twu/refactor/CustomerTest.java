@@ -3,10 +3,7 @@ package com.twu.refactor;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.StringReader;
+import java.io.*;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
@@ -50,11 +47,6 @@ public class CustomerTest {
         verifyOutput(dinsdale.statement(), "outputChange");
     }
 
-    /*
-    public void testHtml() throws Exception {
-        verifyOutput("1st Output", "outputHtml", dinsdale.htmlStatement());
-    }
-    */
     	
     protected void verifyOutput(String actualValue, String fileName) throws IOException{
         BufferedReader file = new BufferedReader (new FileReader (GOLD_PATH + '/' + fileName));
